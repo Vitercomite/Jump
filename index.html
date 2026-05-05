@@ -77,7 +77,7 @@
     .btn-gold:hover { background-position: right center; box-shadow: 0 10px 40px rgba(196,146,58,0.42); }
     .btn-ghost { background: rgba(255,255,255,0.05); color: var(--text); border: 1px solid var(--border-hi); }
     .btn-ghost:hover { background: rgba(255,255,255,0.09); border-color: rgba(255,255,255,0.2); }
-    .menu-btn { display: none; background: rgba(255,255,255,0.05); border: 1px solid var(--border); border-radius: 10px; color: var(--text); width: 40px; height: 40px; align-items: center; justify-content: center; cursor: pointer; font-size: 20px; }
+    .menu-btn { display: none; background: rgba(255,255,255,0.05); border: 1px solid var(--border); border-radius: 10px; color: var(--text); width: 40px; height: 40px; align-items: center; justify-content: center; }
 
     /* ── PILL ─────────────────────────────── */
     .pill {
@@ -113,7 +113,7 @@
     /* dashboard mockup */
     .mockup-wrap { position: relative; }
     .mockup-glow { position: absolute; inset: -80px; background: radial-gradient(ellipse at 50% 50%, rgba(196,146,58,0.10) 0%, transparent 65%); pointer-events: none; z-index: 0; }
-    .mockup { position: relative; z-index: 1; background: var(--surface); border: 1px solid var(--border-hi); border-radius: 26px; overflow: hidden; box-shadow: 0 48px 120px rgba(0,0,0,0.65), 0 0 0 1px rgba(255,255,255,0.04); }
+    .mockup { position: relative; z-index: 1; background: var(--surface); border: 1px solid var(--border-hi); border-radius: 26px; overflow: hidden; box-shadow: 0 48px 120px rgba(0,0,0,0.65), 0 0 0 1px rgba(255,255,255,0.08); }
     .mockup-bar { display: flex; align-items: center; justify-content: space-between; padding: 13px 18px; background: rgba(255,255,255,0.03); border-bottom: 1px solid var(--border); }
     .m-dots { display: flex; gap: 6px; }
     .m-dot { width: 10px; height: 10px; border-radius: 50%; }
@@ -125,7 +125,7 @@
     .mc-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
     .mc-lbl { font-size: 11px; color: var(--muted); margin-bottom: 2px; }
     .mc-name { font-size: 15px; font-weight: 700; }
-    .live-tag { display: flex; align-items: center; gap: 5px; padding: 4px 9px; border-radius: 999px; background: rgba(196,146,58,0.1); border: 1px solid rgba(196,146,58,0.2); font-size: 10.5px; font-weight: 800; color: var(--gold3); }
+    .live-tag { display: flex; align-items: center; gap: 5px; padding: 4px 9px; border-radius: 999px; background: rgba(196,146,58,0.1); border: 1px solid rgba(196,146,58,0.2); font-size: 10.5px; font-weight: 600; color: var(--gold3); }
     .live-tag-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold2); animation: pulse 2s infinite; }
     .bars { display: grid; gap: 9px; }
     .bar-item { background: rgba(0,0,0,0.2); border-radius: 10px; padding: 10px 12px; }
@@ -155,7 +155,7 @@
     .strip-tags { display: flex; flex-wrap: wrap; gap: 9px; justify-content: center; }
     .stag { padding: 8px 18px; border-radius: 999px; font-size: 13.5px; font-weight: 500; background: var(--surface2); border: 1px solid var(--border); color: var(--muted); }
 
-    /* ── SECTIONS ─────────────────────────── */
+    /* ── SECTIONS ─────────────────────── */
     .section { padding: 92px 0; }
     .section-alt { background: rgba(255,255,255,0.018); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
     .kicker { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
@@ -195,7 +195,7 @@
       overflow: hidden;
     }
     .fc:hover { border-color: rgba(196,146,58,0.28); transform: translateY(-5px); box-shadow: 0 28px 64px rgba(0,0,0,0.45); }
-    .fc-num { width: 42px; height: 42px; border-radius: 13px; display: grid; place-items: center; background: rgba(196,146,58,0.1); border: 1px solid rgba(196,146,58,0.2); color: var(--gold2); font-weight: 900; font-size: 15px; margin-bottom: 20px; flex-shrink: 0; }
+    .fc-num { width: 42px; height: 42px; border-radius: 13px; display: grid; place-items: center; background: rgba(196,146,58,0.1); border: 1px solid rgba(196,146,58,0.2); color: var(--gold2); font-weight: 700; font-size: 18px; }
     .fc h3 { font-size: 19px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 9px; }
     .fc p { font-size: 14.5px; color: var(--muted); line-height: 1.6; flex: 1; }
     .fc-img { width: 100%; height: 175px; object-fit: cover; border-radius: 16px; margin-top: 22px; flex-shrink: 0; }
@@ -222,7 +222,7 @@
     .testi-text::after { content: '"'; }
     .testi-author { display: flex; align-items: center; gap: 12px; }
     .testi-av { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid var(--border-hi); }
-    .testi-av-placeholder { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, var(--gold), var(--gold2)); display: grid; place-items: center; font-weight: 800; font-size: 15px; color: #06070b; flex-shrink: 0; }
+    .testi-av-placeholder { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, var(--gold), var(--gold2)); display: grid; place-items: center; font-weight: 800; font-size: 13px; color: #06070b; }
     .testi-name { font-size: 14px; font-weight: 700; }
     .testi-role { font-size: 12.5px; color: var(--muted); }
 
@@ -248,7 +248,7 @@
       border-color: rgba(196,146,58,0.28); transform: translateY(-7px);
       box-shadow: 0 36px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(196,146,58,0.12);
     }
-    .feat-badge { display: inline-flex; padding: 5px 12px; border-radius: 999px; background: rgba(196,146,58,0.13); border: 1px solid rgba(196,146,58,0.24); font-size: 10.5px; font-weight: 800; color: var(--gold3); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 16px; }
+    .feat-badge { display: inline-flex; padding: 5px 12px; border-radius: 999px; background: rgba(196,146,58,0.13); border: 1px solid rgba(196,146,58,0.24); font-size: 10.5px; font-weight: 800; color: var(--gold3); margin-bottom: 10px; }
     .pc-tier { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
     .pc-price { font-size: 50px; font-weight: 900; letter-spacing: -0.06em; line-height: 1; }
     .pc-price sup { font-size: 20px; font-weight: 700; vertical-align: super; letter-spacing: 0; }
@@ -259,7 +259,7 @@
     .pc-item { display: flex; gap: 10px; align-items: center; font-size: 14px; color: #c4cad8; }
     .pc-check { width: 17px; height: 17px; border-radius: 50%; background: rgba(196,146,58,0.12); border: 1px solid rgba(196,146,58,0.22); display: grid; place-items: center; flex-shrink: 0; }
     .pc-check svg { width: 9px; height: 9px; }
-    .pc-btn { display: block; width: 100%; text-align: center; margin-top: 24px; padding: 14px; border-radius: 14px; font-weight: 700; font-size: 14.5px; cursor: pointer; border: 0; font-family: inherit; transition: all .2s; }
+    .pc-btn { display: block; width: 100%; text-align: center; margin-top: 24px; padding: 14px; border-radius: 14px; font-weight: 700; font-size: 14.5px; cursor: pointer; border: 0; font-family: inherit; transition: transform .2s, box-shadow .2s; }
     .pc-btn-line { background: rgba(255,255,255,0.05); color: var(--text); border: 1px solid var(--border-hi); }
     .pc-btn-line:hover { background: rgba(255,255,255,0.09); }
     .pc-btn-gold { background: linear-gradient(130deg, var(--gold), var(--gold2)); color: #06070b; box-shadow: 0 8px 28px rgba(196,146,58,0.24); }
@@ -287,10 +287,10 @@
     .form-box h3 { font-size: 17px; font-weight: 800; margin-bottom: 20px; letter-spacing: -0.02em; }
     .field { margin-bottom: 13px; }
     .field label { display: block; font-size: 12.5px; font-weight: 600; color: #9098b4; margin-bottom: 7px; }
-    .field input { width: 100%; padding: 12.5px 15px; border-radius: 12px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: var(--text); font-family: inherit; font-size: 14.5px; outline: none; transition: border-color .2s, background .2s; }
+    .field input { width: 100%; padding: 12.5px 15px; border-radius: 12px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: var(--text); font-family: inherit; font-size: 14px; transition: border-color .2s, background .2s; }
     .field input::placeholder { color: var(--muted2); }
     .field input:focus { border-color: rgba(196,146,58,0.42); background: rgba(255,255,255,0.07); }
-    .sub-btn { width: 100%; padding: 14px; border-radius: 13px; border: 0; background: linear-gradient(130deg, #c4923a 0%, #e5b468 55%, #c4923a 100%); background-size: 200% auto; color: #06070b; font-family: inherit; font-size: 15px; font-weight: 800; cursor: pointer; transition: background-position .4s, transform .2s, box-shadow .2s; box-shadow: 0 8px 28px rgba(196,146,58,0.22); margin-top: 6px; }
+    .sub-btn { width: 100%; padding: 14px; border-radius: 13px; border: 0; background: linear-gradient(130deg, #c4923a 0%, #e5b468 55%, #c4923a 100%); background-size: 200% auto; color: #06070b; font-weight: 700; font-size: 14px; cursor: pointer; transition: transform .2s, box-shadow .2s; }
     .sub-btn:hover { background-position: right center; transform: translateY(-2px); box-shadow: 0 12px 36px rgba(196,146,58,0.40); }
     .form-note { font-size: 11.5px; color: var(--muted2); line-height: 1.55; margin-top: 10px; text-align: center; }
     #msg { display: none; margin-top: 12px; padding: 13px 15px; border-radius: 13px; background: rgba(196,146,58,0.09); border: 1px solid rgba(196,146,58,0.2); color: var(--gold3); font-size: 13.5px; line-height: 1.5; }
@@ -302,7 +302,7 @@
     details[open] { border-color: rgba(196,146,58,0.24); }
     summary { list-style: none; cursor: pointer; font-weight: 700; font-size: 15.5px; padding: 19px 21px; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
     summary::-webkit-details-marker { display: none; }
-    summary::after { content: '+'; width: 24px; height: 24px; border-radius: 50%; flex-shrink: 0; background: rgba(196,146,58,0.09); border: 1px solid rgba(196,146,58,0.2); display: grid; place-items: center; color: var(--gold2); font-size: 17px; line-height: 1; transition: transform .2s; }
+    summary::after { content: '+'; width: 24px; height: 24px; border-radius: 50%; flex-shrink: 0; background: rgba(196,146,58,0.09); border: 1px solid rgba(196,146,58,0.2); display: grid; place-items: center; font-size: 16px; transition: transform .2s; }
     details[open] summary::after { transform: rotate(45deg); }
     details p { padding: 0 21px 19px; font-size: 14.5px; color: var(--muted); line-height: 1.65; }
 
@@ -623,9 +623,9 @@
         <div class="pc-desc">Ideal para começar e validar o fluxo com seus primeiros leads.</div>
         <div class="pc-div"></div>
         <div class="pc-items">
-          <div class="pc-item"><span class="pc-check"><svg viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.2 6L8 1" stroke="#e5b468" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Até 300 leads/mês</div>
-          <div class="pc-item"><span class="pc-check"><svg viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.2 6L8 1" stroke="#e5b468" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> 2 sequências de follow-up</div>
-          <div class="pc-item"><span class="pc-check"><svg viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.2 6L8 1" stroke="#e5b468" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Dashboard básico</div>
+          <div class="pc-item"><span class="pc-check"><svg viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.2 6L8 1" stroke="#e5b468" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Até 100 leads</div>
+          <div class="pc-item"><span class="pc-check"><svg viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.2 6L8 1" stroke="#e5b468" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Tags básicas</div>
+          <div class="pc-item"><span class="pc-check"><svg viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.2 6L8 1" stroke="#e5b468" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Suporte por email</div>
         </div>
         <button class="pc-btn pc-btn-line">Começar grátis</button>
       </div>
@@ -637,10 +637,10 @@
         <div class="pc-desc">Para quem quer crescer com previsibilidade e escala real.</div>
         <div class="pc-div"></div>
         <div class="pc-items">
-          <div class="pc-item"><span class="pc-check"><svg viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.2 6L8 1" stroke="#e5b468" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Leads ilimitados</div>
-          <div class="pc-item"><span class="pc-check"><svg viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.2 6L8 1" stroke="#e5b468" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> 10 sequências de mensagens</div>
-          <div class="pc-item"><span class="pc-check"><svg viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.2 6L8 1" stroke="#e5b468" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Exportação e tags avançadas</div>
-          <div class="pc-item"><span class="pc-check"><svg viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.2 6L8 1" stroke="#e5b468" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Relatórios de conversão</div>
+          <div class="pc-item"><span class="pc-check"><svg viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.2 6L8 1" stroke="#e5b468" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Até 1000 leads</div>
+          <div class="pc-item"><span class="pc-check"><svg viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.2 6L8 1" stroke="#e5b468" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Follow-ups automáticos</div>
+          <div class="pc-item"><span class="pc-check"><svg viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.2 6L8 1" stroke="#e5b468" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Relatórios avançados</div>
+          <div class="pc-item"><span class="pc-check"><svg viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.2 6L8 1" stroke="#e5b468" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Suporte prioritário</div>
         </div>
         <button class="pc-btn pc-btn-gold">Quero o Pro</button>
       </div>
@@ -651,9 +651,9 @@
         <div class="pc-desc">Para quem atende vários clientes com gestão centralizada.</div>
         <div class="pc-div"></div>
         <div class="pc-items">
-          <div class="pc-item"><span class="pc-check"><svg viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.2 6L8 1" stroke="#e5b468" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Multiusuário</div>
-          <div class="pc-item"><span class="pc-check"><svg viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.2 6L8 1" stroke="#e5b468" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Gestão por cliente</div>
-          <div class="pc-item"><span class="pc-check"><svg viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.2 6L8 1" stroke="#e5b468" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> White label em breve</div>
+          <div class="pc-item"><span class="pc-check"><svg viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.2 6L8 1" stroke="#e5b468" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Leads ilimitados</div>
+          <div class="pc-item"><span class="pc-check"><svg viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.2 6L8 1" stroke="#e5b468" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Múltiplos usuários</div>
+          <div class="pc-item"><span class="pc-check"><svg viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.2 6L8 1" stroke="#e5b468" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> API customizada</div>
         </div>
         <button class="pc-btn pc-btn-line">Falar com o time</button>
       </div>
@@ -706,7 +706,7 @@
       </details>
       <details>
         <summary>Funciona para qualquer tipo de negócio?</summary>
-        <p>Sim, especialmente negócios que vendem pelo WhatsApp: clínicas, advogados, academias, imobiliárias, consultores e e-commerce. Se você recebe mensagens e precisa acompanhar, o Leaps serve para você.</p>
+        <p>Sim, especialmente negócios que vendem pelo WhatsApp: clínicas, advogados, academias, imobiliárias, consultores e e-commerce. Se você recebe mensagens e precisa acompanhar, o Leaps serve perfeitamente.</p>
       </details>
       <details>
         <summary>Posso cancelar quando quiser?</summary>
@@ -740,8 +740,8 @@
 
 <script type="module">
   import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
-  const SUPABASE_URL = 'https://SEU-PROJETO.supabase.co';
-  const SUPABASE_ANON_KEY = 'SUA_CHAVE_ANONIMA_AQUI';
+  const SUPABASE_URL = 'https://vbkekubtswniaizxenyh.supabase.co';
+  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZia2VrdWJ0c3duaWFpenhlbnloIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc5Nzg0NjMsImV4cCI6MjA5MzU1NDQ2M30.zKkOXjzepRDu8EysKMuDsMSQWEyOAjlaRLp_N8sm5f0';
   const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
   const form = document.getElementById('leadForm');
   const msg  = document.getElementById('msg');

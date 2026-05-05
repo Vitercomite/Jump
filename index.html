@@ -77,7 +77,7 @@
     .btn-gold:hover { background-position: right center; box-shadow: 0 10px 40px rgba(196,146,58,0.42); }
     .btn-ghost { background: rgba(255,255,255,0.05); color: var(--text); border: 1px solid var(--border-hi); }
     .btn-ghost:hover { background: rgba(255,255,255,0.09); border-color: rgba(255,255,255,0.2); }
-    .menu-btn { display: none; background: rgba(255,255,255,0.05); border: 1px solid var(--border); border-radius: 10px; color: var(--text); width: 40px; height: 40px; align-items: center; justify-content: center; }
+    .menu-btn { display: none; background: rgba(255,255,255,0.05); border: 1px solid var(--border); border-radius: 10px; color: var(--text); width: 40px; height: 40px; align-items: center; justify-content: center; cursor: pointer; }
 
     /* ── PILL ─────────────────────────────── */
     .pill {
@@ -113,7 +113,7 @@
     /* dashboard mockup */
     .mockup-wrap { position: relative; }
     .mockup-glow { position: absolute; inset: -80px; background: radial-gradient(ellipse at 50% 50%, rgba(196,146,58,0.10) 0%, transparent 65%); pointer-events: none; z-index: 0; }
-    .mockup { position: relative; z-index: 1; background: var(--surface); border: 1px solid var(--border-hi); border-radius: 26px; overflow: hidden; box-shadow: 0 48px 120px rgba(0,0,0,0.65), 0 0 0 1px rgba(255,255,255,0.08); }
+    .mockup { position: relative; z-index: 1; background: var(--surface); border: 1px solid var(--border-hi); border-radius: 26px; overflow: hidden; box-shadow: 0 48px 120px rgba(0,0,0,0.65), 0 0 0 1px rgba(255,255,255,0.06); }
     .mockup-bar { display: flex; align-items: center; justify-content: space-between; padding: 13px 18px; background: rgba(255,255,255,0.03); border-bottom: 1px solid var(--border); }
     .m-dots { display: flex; gap: 6px; }
     .m-dot { width: 10px; height: 10px; border-radius: 50%; }
@@ -125,7 +125,7 @@
     .mc-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
     .mc-lbl { font-size: 11px; color: var(--muted); margin-bottom: 2px; }
     .mc-name { font-size: 15px; font-weight: 700; }
-    .live-tag { display: flex; align-items: center; gap: 5px; padding: 4px 9px; border-radius: 999px; background: rgba(196,146,58,0.1); border: 1px solid rgba(196,146,58,0.2); font-size: 10.5px; font-weight: 600; color: var(--gold3); }
+    .live-tag { display: flex; align-items: center; gap: 5px; padding: 4px 9px; border-radius: 999px; background: rgba(196,146,58,0.1); border: 1px solid rgba(196,146,58,0.2); font-size: 10.5px; font-weight: 700; color: var(--gold3); }
     .live-tag-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold2); animation: pulse 2s infinite; }
     .bars { display: grid; gap: 9px; }
     .bar-item { background: rgba(0,0,0,0.2); border-radius: 10px; padding: 10px 12px; }
@@ -195,7 +195,7 @@
       overflow: hidden;
     }
     .fc:hover { border-color: rgba(196,146,58,0.28); transform: translateY(-5px); box-shadow: 0 28px 64px rgba(0,0,0,0.45); }
-    .fc-num { width: 42px; height: 42px; border-radius: 13px; display: grid; place-items: center; background: rgba(196,146,58,0.1); border: 1px solid rgba(196,146,58,0.2); color: var(--gold2); font-weight: 700; font-size: 18px; }
+    .fc-num { width: 42px; height: 42px; border-radius: 13px; display: grid; place-items: center; background: rgba(196,146,58,0.1); border: 1px solid rgba(196,146,58,0.2); color: var(--gold2); font-weight: 900; font-size: 18px; }
     .fc h3 { font-size: 19px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 9px; }
     .fc p { font-size: 14.5px; color: var(--muted); line-height: 1.6; flex: 1; }
     .fc-img { width: 100%; height: 175px; object-fit: cover; border-radius: 16px; margin-top: 22px; flex-shrink: 0; }
@@ -222,7 +222,7 @@
     .testi-text::after { content: '"'; }
     .testi-author { display: flex; align-items: center; gap: 12px; }
     .testi-av { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid var(--border-hi); }
-    .testi-av-placeholder { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, var(--gold), var(--gold2)); display: grid; place-items: center; font-weight: 800; font-size: 13px; color: #06070b; }
+    .testi-av-placeholder { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, var(--gold), var(--gold2)); display: grid; place-items: center; font-weight: 800; font-size: 16px; color: #06070b; }
     .testi-name { font-size: 14px; font-weight: 700; }
     .testi-role { font-size: 12.5px; color: var(--muted); }
 
@@ -248,7 +248,7 @@
       border-color: rgba(196,146,58,0.28); transform: translateY(-7px);
       box-shadow: 0 36px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(196,146,58,0.12);
     }
-    .feat-badge { display: inline-flex; padding: 5px 12px; border-radius: 999px; background: rgba(196,146,58,0.13); border: 1px solid rgba(196,146,58,0.24); font-size: 10.5px; font-weight: 800; color: var(--gold3); margin-bottom: 10px; }
+    .feat-badge { display: inline-flex; padding: 5px 12px; border-radius: 999px; background: rgba(196,146,58,0.13); border: 1px solid rgba(196,146,58,0.24); font-size: 10.5px; font-weight: 800; color: var(--gold3); margin-bottom: 12px; }
     .pc-tier { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
     .pc-price { font-size: 50px; font-weight: 900; letter-spacing: -0.06em; line-height: 1; }
     .pc-price sup { font-size: 20px; font-weight: 700; vertical-align: super; letter-spacing: 0; }
@@ -289,11 +289,11 @@
     .field label { display: block; font-size: 12.5px; font-weight: 600; color: #9098b4; margin-bottom: 7px; }
     .field input { width: 100%; padding: 12.5px 15px; border-radius: 12px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: var(--text); font-family: inherit; font-size: 14px; transition: border-color .2s, background .2s; }
     .field input::placeholder { color: var(--muted2); }
-    .field input:focus { border-color: rgba(196,146,58,0.42); background: rgba(255,255,255,0.07); }
-    .sub-btn { width: 100%; padding: 14px; border-radius: 13px; border: 0; background: linear-gradient(130deg, #c4923a 0%, #e5b468 55%, #c4923a 100%); background-size: 200% auto; color: #06070b; font-weight: 700; font-size: 14px; cursor: pointer; transition: transform .2s, box-shadow .2s; }
+    .field input:focus { border-color: rgba(196,146,58,0.42); background: rgba(255,255,255,0.07); outline: 0; }
+    .sub-btn { width: 100%; padding: 14px; border-radius: 13px; border: 0; background: linear-gradient(130deg, #c4923a 0%, #e5b468 55%, #c4923a 100%); background-size: 200% auto; color: #06070b; font-weight: 700; cursor: pointer; font-size: 14.5px; transition: transform .2s, box-shadow .2s; }
     .sub-btn:hover { background-position: right center; transform: translateY(-2px); box-shadow: 0 12px 36px rgba(196,146,58,0.40); }
     .form-note { font-size: 11.5px; color: var(--muted2); line-height: 1.55; margin-top: 10px; text-align: center; }
-    #msg { display: none; margin-top: 12px; padding: 13px 15px; border-radius: 13px; background: rgba(196,146,58,0.09); border: 1px solid rgba(196,146,58,0.2); color: var(--gold3); font-size: 13.5px; line-height: 1.5; }
+    #msg { display: none; margin-top: 12px; padding: 13px 15px; border-radius: 13px; background: rgba(196,146,58,0.09); border: 1px solid rgba(196,146,58,0.2); color: var(--gold3); font-size: 13.5px; text-align: center; }
 
     /* ── FAQ ──────────────────────────────── */
     .faq-wrap { max-width: 740px; margin: 0 auto; }
@@ -302,7 +302,7 @@
     details[open] { border-color: rgba(196,146,58,0.24); }
     summary { list-style: none; cursor: pointer; font-weight: 700; font-size: 15.5px; padding: 19px 21px; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
     summary::-webkit-details-marker { display: none; }
-    summary::after { content: '+'; width: 24px; height: 24px; border-radius: 50%; flex-shrink: 0; background: rgba(196,146,58,0.09); border: 1px solid rgba(196,146,58,0.2); display: grid; place-items: center; font-size: 16px; transition: transform .2s; }
+    summary::after { content: '+'; width: 24px; height: 24px; border-radius: 50%; flex-shrink: 0; background: rgba(196,146,58,0.09); border: 1px solid rgba(196,146,58,0.2); display: grid; place-items: center; font-size: 18px; transition: transform .3s; }
     details[open] summary::after { transform: rotate(45deg); }
     details p { padding: 0 21px 19px; font-size: 14.5px; color: var(--muted); line-height: 1.65; }
 
@@ -623,8 +623,8 @@
         <div class="pc-desc">Ideal para começar e validar o fluxo com seus primeiros leads.</div>
         <div class="pc-div"></div>
         <div class="pc-items">
-          <div class="pc-item"><span class="pc-check"><svg viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.2 6L8 1" stroke="#e5b468" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Até 100 leads</div>
-          <div class="pc-item"><span class="pc-check"><svg viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.2 6L8 1" stroke="#e5b468" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Tags básicas</div>
+          <div class="pc-item"><span class="pc-check"><svg viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.2 6L8 1" stroke="#e5b468" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Captura de leads</div>
+          <div class="pc-item"><span class="pc-check"><svg viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.2 6L8 1" stroke="#e5b468" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Até 100 leads/mês</div>
           <div class="pc-item"><span class="pc-check"><svg viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.2 6L8 1" stroke="#e5b468" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Suporte por email</div>
         </div>
         <button class="pc-btn pc-btn-line">Começar grátis</button>
@@ -637,10 +637,10 @@
         <div class="pc-desc">Para quem quer crescer com previsibilidade e escala real.</div>
         <div class="pc-div"></div>
         <div class="pc-items">
-          <div class="pc-item"><span class="pc-check"><svg viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.2 6L8 1" stroke="#e5b468" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Até 1000 leads</div>
-          <div class="pc-item"><span class="pc-check"><svg viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.2 6L8 1" stroke="#e5b468" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Follow-ups automáticos</div>
-          <div class="pc-item"><span class="pc-check"><svg viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.2 6L8 1" stroke="#e5b468" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Relatórios avançados</div>
-          <div class="pc-item"><span class="pc-check"><svg viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.2 6L8 1" stroke="#e5b468" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Suporte prioritário</div>
+          <div class="pc-item"><span class="pc-check"><svg viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.2 6L8 1" stroke="#e5b468" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Tudo do Starter</div>
+          <div class="pc-item"><span class="pc-check"><svg viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.2 6L8 1" stroke="#e5b468" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Até 500 leads/mês</div>
+          <div class="pc-item"><span class="pc-check"><svg viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.2 6L8 1" stroke="#e5b468" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Automação completa</div>
+          <div class="pc-item"><span class="pc-check"><svg viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.2 6L8 1" stroke="#e5b468" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Prioridade 24/7</div>
         </div>
         <button class="pc-btn pc-btn-gold">Quero o Pro</button>
       </div>
@@ -651,9 +651,9 @@
         <div class="pc-desc">Para quem atende vários clientes com gestão centralizada.</div>
         <div class="pc-div"></div>
         <div class="pc-items">
+          <div class="pc-item"><span class="pc-check"><svg viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.2 6L8 1" stroke="#e5b468" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Tudo do Pro</div>
           <div class="pc-item"><span class="pc-check"><svg viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.2 6L8 1" stroke="#e5b468" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Leads ilimitados</div>
-          <div class="pc-item"><span class="pc-check"><svg viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.2 6L8 1" stroke="#e5b468" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Múltiplos usuários</div>
-          <div class="pc-item"><span class="pc-check"><svg viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.2 6L8 1" stroke="#e5b468" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> API customizada</div>
+          <div class="pc-item"><span class="pc-check"><svg viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.2 6L8 1" stroke="#e5b468" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Múltiplas contas</div>
         </div>
         <button class="pc-btn pc-btn-line">Falar com o time</button>
       </div>
@@ -698,7 +698,7 @@
     <div class="faq">
       <details>
         <summary>O Leaps captura leads automaticamente?</summary>
-        <p>Sim. O formulário envia os dados direto para o painel, sem ferramentas externas. A integração com Supabase garante que nenhum lead se perca e você pode acessar tudo em tempo real.</p>
+        <p>Sim. O formulário envia os dados direto para o painel, sem ferramentas externas. A integração com n8n garante que nenhum lead se perca e você pode acessar tudo em tempo real.</p>
       </details>
       <details>
         <summary>Preciso de conhecimento técnico para usar?</summary>
@@ -706,7 +706,7 @@
       </details>
       <details>
         <summary>Funciona para qualquer tipo de negócio?</summary>
-        <p>Sim, especialmente negócios que vendem pelo WhatsApp: clínicas, advogados, academias, imobiliárias, consultores e e-commerce. Se você recebe mensagens e precisa acompanhar, o Leaps serve perfeitamente.</p>
+        <p>Sim, especialmente negócios que vendem pelo WhatsApp: clínicas, advogados, academias, imobiliárias, consultores e e-commerce. Se você recebe mensagens e precisa acompanhar, o Leaps serve.</p>
       </details>
       <details>
         <summary>Posso cancelar quando quiser?</summary>
@@ -714,7 +714,7 @@
       </details>
       <details>
         <summary>Como publico o Leaps no meu domínio?</summary>
-        <p>Configure o Supabase com suas credenciais, faça upload do index.html para Vercel, Netlify ou HostGator e aponte seu domínio. O guia completo está no README incluído no ZIP.</p>
+        <p>Configure o n8n com suas credenciais, faça upload do index.html para Vercel, Netlify ou HostGator e aponte seu domínio. O guia completo está no README incluído no ZIP.</p>
       </details>
     </div>
   </div>
@@ -738,21 +738,39 @@
   </div>
 </footer>
 
-<script type="module">
-  import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
-  const SUPABASE_URL = 'https://vbkekubtswniaizxenyh.supabase.co';
-  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZia2VrdWJ0c3duaWFpenhlbnloIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc5Nzg0NjMsImV4cCI6MjA5MzU1NDQ2M30.zKkOXjzepRDu8EysKMuDsMSQWEyOAjlaRLp_N8sm5f0';
-  const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+<script>
   const form = document.getElementById('leadForm');
   const msg  = document.getElementById('msg');
+  
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const lead = { name: form.name.value.trim(), email: form.email.value.trim().toLowerCase(), whatsapp: form.whatsapp.value.trim() };
+    
+    const lead = {
+      name: form.name.value.trim(),
+      email: form.email.value.trim().toLowerCase(),
+      whatsapp: form.whatsapp.value.trim()
+    };
+    
     try {
-      const { error } = await supabase.from('leads').insert([lead]);
-      if (error) { console.error(error); alert('Erro ao salvar. Confira tabela e permissões.'); return; }
-      form.reset(); msg.style.display = 'block'; msg.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    } catch (err) { console.error(err); alert('Erro de conexão.'); }
+      const response = await fetch("https://l8eaps.app.n8n.cloud/webhook/prospect", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(lead)
+      });
+      
+      if (!response.ok) {
+        throw new Error(`HTTP Error: ${response.status}`);
+      }
+      
+      form.reset();
+      msg.style.display = 'block';
+      msg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } catch (err) {
+      console.error(err);
+      alert('Erro ao enviar. Tente novamente.');
+    }
   });
 </script>
 

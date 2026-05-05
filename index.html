@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leaps — Nunca mais perca clientes no WhatsApp</title>
+  <meta name="description" content="Leaps ajuda pequenos negócios a capturar leads, fazer follow-up automático e fechar mais vendas pelo WhatsApp." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg:        #07080c;
+      --bg2:       #0c0e16;
+      --surface:   #111320;
+      --surface2:  #181b28;
+      --border:    rgba(255,255,255,0.06);
+      --border-hi: rgba(255,255,255,0.12);
+      --text:      #eef0f8;
+      --muted:     #6e748e;
+      --muted2:    #4a4f64;
+      --gold:      #c4923a;
+      --gold2:     #e5b468;
+      --gold3:     #f3ce90;
+      --gold-glow: rgba(196,146,58,0.16);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+
+    /* SCROLLBAR */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--surface2); border-radius: 999px; }
+
+    /* ── TOPBAR ─────────────────────────────── */
+    .topbar {
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(28px) saturate(160%);
+      -webkit-backdrop-filter: blur(28px) saturate(160%);
+      background: rgba(7,8,12,0.80);
+      border-bottom: 1px solid var(--border);
+    }
+    .topbar-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 15px 0; }
+    .brand { display: flex; align-items: center; gap: 11px; }
+    .logo-svg { width: 36px; height: 36px; }
+    .wordmark { font-family: 'Instrument Serif', serif; font-size: 21px; color: #fff; letter-spacing: -0.01em; }
+    .wordmark em { color: var(--gold2); font-style: normal; }
+    .nav { display: flex; align-items: center; gap: 30px; font-size: 14px; font-weight: 500; color: var(--muted); }
+    .nav a { transition: color .2s; }
+    .nav a:hover { color: var(--text); }
+    .btn {
+      display: inline-flex; align-items: center; gap: 7px;
+      border: 0; border-radius: 999px; padding: 12px 24px;
+      font-family: inherit; font-weight: 700; font-size: 14px; cursor: pointer;
+      transition: transform .2s, box-shadow .2s, opacity .2s; white-space: nowrap;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-gold {
+      background: linear-gradient(130deg, #c4923a 0%, #e5b468 55%, #c4923a 100%);
+      background-size: 200% auto;
+      color: #06070b;
+      box-shadow: 0 6px 28px rgba(196,146,58,0.28), inset 0 1px 0 rgba(255,255,255,0.18);
+    }
+    .btn-gold:hover { background-position: right center; box-shadow: 0 10px 40px rgba(196,146,58,0.42); }
+    .btn-ghost { background: rgba(255,255,255,0.05); color: var(--text); border: 1px solid var(--border-hi); }
+    .btn-ghost:hover { background: rgba(255,255,255,0.09); border-color: rgba(255,255,255,0.2); }
+    .menu-btn { display: none; background: rgba(255,255,255,0.05); border: 1px solid var(--border); border-radius: 10px; color: var(--text); width: 40px; height: 40px; align-items: center; justify-content: center; cursor: pointer; font-size: 20px; }
+
+    /* ── PILL ─────────────────────────────── */
+    .pill {
+      display: inline-flex; align-items: center; gap: 8px; padding: 7px 15px;
+      border-radius: 999px; background: rgba(196,146,58,0.08); border: 1px solid rgba(196,146,58,0.2);
+      color: var(--gold3); font-size: 12.5px; font-weight: 600; letter-spacing: 0.01em; margin-bottom: 22px;
+    }
+    .pill-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold2); animation: pulse 2.4s infinite; flex-shrink: 0; }
+    @keyframes pulse { 0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(229,180,104,.5);} 60%{opacity:.6;box-shadow:0 0 0 5px rgba(229,180,104,0);} }
+
+    /* ── HERO ─────────────────────────────── */
+    .hero { padding: 100px 0 80px; position: relative; overflow: hidden; }
+    .hero-bg {
+      position: absolute; inset: 0; pointer-events: none; z-index: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 60% -10%, rgba(196,146,58,0.09) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 40% at 0% 80%, rgba(100,80,200,0.05) 0%, transparent 60%);
+    }
+    .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 60px; align-items: center; position: relative; z-index: 1; }
+
+    h1 { font-size: clamp(42px, 5.2vw, 68px); line-height: 1.01; letter-spacing: -0.045em; font-weight: 800; margin-bottom: 20px; }
+    .h1-serif { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; color: var(--gold2); }
+    .lead { font-size: 17.5px; color: var(--muted); line-height: 1.7; max-width: 520px; margin-bottom: 34px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 48px; }
+
+    /* metrics row */
+    .metrics { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); border-radius: 18px; overflow: hidden; }
+    .metric { background: var(--surface); padding: 18px 16px; }
+    .metric-val { font-size: 26px; font-weight: 800; letter-spacing: -0.04em; color: var(--text); margin-bottom: 3px; }
+    .metric-val.gold { color: var(--gold2); }
+    .metric-lbl { font-size: 12.5px; color: var(--muted); }
+
+    /* dashboard mockup */
+    .mockup-wrap { position: relative; }
+    .mockup-glow { position: absolute; inset: -80px; background: radial-gradient(ellipse at 50% 50%, rgba(196,146,58,0.10) 0%, transparent 65%); pointer-events: none; z-index: 0; }
+    .mockup { position: relative; z-index: 1; background: var(--surface); border: 1px solid var(--border-hi); border-radius: 26px; overflow: hidden; box-shadow: 0 48px 120px rgba(0,0,0,0.65), 0 0 0 1px rgba(255,255,255,0.04); }
+    .mockup-bar { display: flex; align-items: center; justify-content: space-between; padding: 13px 18px; background: rgba(255,255,255,0.03); border-bottom: 1px solid var(--border); }
+    .m-dots { display: flex; gap: 6px; }
+    .m-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .m-dot-r { background: #ff6058; } .m-dot-y { background: #febc2e; } .m-dot-g { background: #28c840; }
+    .m-title { font-size: 11.5px; font-weight: 600; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; }
+    .m-body { padding: 16px; display: grid; grid-template-columns: 1.25fr 0.85fr; gap: 12px; }
+
+    .mc { background: var(--surface2); border: 1px solid var(--border); border-radius: 16px; padding: 14px; }
+    .mc-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+    .mc-lbl { font-size: 11px; color: var(--muted); margin-bottom: 2px; }
+    .mc-name { font-size: 15px; font-weight: 700; }
+    .live-tag { display: flex; align-items: center; gap: 5px; padding: 4px 9px; border-radius: 999px; background: rgba(196,146,58,0.1); border: 1px solid rgba(196,146,58,0.2); font-size: 10.5px; font-weight: 800; color: var(--gold3); }
+    .live-tag-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold2); animation: pulse 2s infinite; }
+    .bars { display: grid; gap: 9px; }
+    .bar-item { background: rgba(0,0,0,0.2); border-radius: 10px; padding: 10px 12px; }
+    .bar-row { display: flex; justify-content: space-between; font-size: 12px; color: #bcc2d6; margin-bottom: 7px; }
+    .bar-row b { color: var(--text); }
+    .bar-track { height: 7px; background: rgba(255,255,255,0.06); border-radius: 999px; overflow: hidden; }
+    .bar-fill { height: 100%; border-radius: inherit; }
+    .bf-a { width: 78%; background: linear-gradient(90deg, #c4923a, #e5b468); }
+    .bf-b { width: 53%; background: linear-gradient(90deg, #7c6fe0, #a89cf0); }
+    .bf-c { width: 30%; background: linear-gradient(90deg, #3e9b7a, #5ec9a0); }
+
+    .mc-right { display: grid; gap: 12px; }
+    .mc-mini { background: var(--surface2); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+    .mc-mini img { width: 100%; height: 82px; object-fit: cover; filter: brightness(0.85); }
+    .mc-mini-body { padding: 10px 12px; }
+    .mc-mini-body h5 { font-size: 13px; font-weight: 700; margin-bottom: 2px; }
+    .mc-mini-body p { font-size: 11px; color: var(--muted); line-height: 1.4; }
+    .mc-stat { background: linear-gradient(130deg, rgba(196,146,58,0.14), rgba(17,19,32,0.9)); border: 1px solid rgba(196,146,58,0.18); border-radius: 16px; padding: 14px; }
+    .mc-stat-lbl { font-size: 11px; color: var(--gold3); margin-bottom: 3px; }
+    .mc-stat-num { font-size: 30px; font-weight: 900; letter-spacing: -0.05em; }
+    .mc-stat-sub { font-size: 11px; color: var(--muted); margin-top: 1px; }
+
+    /* ── STRIP ─────────────────────────────── */
+    .strip { padding: 28px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: rgba(255,255,255,0.015); }
+    .strip-inner { display: flex; align-items: center; justify-content: center; gap: 0; flex-wrap: wrap; }
+    .strip-label { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted2); margin-right: 36px; }
+    .strip-tags { display: flex; flex-wrap: wrap; gap: 9px; justify-content: center; }
+    .stag { padding: 8px 18px; border-radius: 999px; font-size: 13.5px; font-weight: 500; background: var(--surface2); border: 1px solid var(--border); color: var(--muted); }
+
+    /* ── SECTIONS ─────────────────────────── */
+    .section { padding: 92px 0; }
+    .section-alt { background: rgba(255,255,255,0.018); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .kicker { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+    h2 { font-size: clamp(30px, 3.8vw, 48px); line-height: 1.07; letter-spacing: -0.04em; font-weight: 800; margin-bottom: 16px; }
+    .sub { font-size: 17px; color: var(--muted); line-height: 1.7; max-width: 660px; margin: 0 auto; }
+    .tc { text-align: center; }
+    .tl { text-align: left; }
+
+    /* ── PROBLEM ──────────────────────────── */
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: center; }
+    .bullets { display: grid; gap: 13px; margin-top: 28px; }
+    .bullet { display: flex; gap: 14px; align-items: flex-start; padding: 17px 19px; border-radius: 18px; background: var(--surface); border: 1px solid var(--border); transition: border-color .25s, transform .25s; }
+    .bullet:hover { border-color: var(--border-hi); transform: translateX(4px); }
+    .b-dot { width: 9px; height: 9px; border-radius: 50%; margin-top: 7px; flex-shrink: 0; }
+    .b-gold { background: var(--gold2); box-shadow: 0 0 8px var(--gold-glow); }
+    .b-purple { background: #9f7fea; }
+    .b-red { background: #d97474; }
+    .bullet h4 { font-size: 15.5px; font-weight: 700; margin-bottom: 3px; }
+    .bullet p { font-size: 14px; color: var(--muted); line-height: 1.5; }
+
+    .ba-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .ba-card { border-radius: 22px; overflow: hidden; background: var(--surface); border: 1px solid var(--border); }
+    .ba-card.after { border-color: rgba(196,146,58,0.2); background: linear-gradient(160deg, rgba(196,146,58,0.08), var(--surface)); }
+    .ba-card img { width: 100%; height: 170px; object-fit: cover; }
+    .ba-body { padding: 16px 18px; }
+    .ba-lbl { font-size: 11px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 6px; }
+    .ba-lbl.before-l { color: #d97474; }
+    .ba-lbl.after-l { color: var(--gold2); }
+    .ba-body p { font-size: 13.5px; color: var(--muted); line-height: 1.5; }
+
+    /* ── SOLUÇÃO / FEATURES ───────────────── */
+    .fg { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 48px; }
+    .fc {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 26px; padding: 28px;
+      display: flex; flex-direction: column;
+      transition: border-color .3s, transform .3s, box-shadow .3s;
+      overflow: hidden;
+    }
+    .fc:hover { border-color: rgba(196,146,58,0.28); transform: translateY(-5px); box-shadow: 0 28px 64px rgba(0,0,0,0.45); }
+    .fc-num { width: 42px; height: 42px; border-radius: 13px; display: grid; place-items: center; background: rgba(196,146,58,0.1); border: 1px solid rgba(196,146,58,0.2); color: var(--gold2); font-weight: 900; font-size: 15px; margin-bottom: 20px; flex-shrink: 0; }
+    .fc h3 { font-size: 19px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 9px; }
+    .fc p { font-size: 14.5px; color: var(--muted); line-height: 1.6; flex: 1; }
+    .fc-img { width: 100%; height: 175px; object-fit: cover; border-radius: 16px; margin-top: 22px; flex-shrink: 0; }
+
+    /* ── NUMBERS / PROOF ──────────────────── */
+    .proof { padding: 80px 0; }
+    .proof-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--border); border-radius: 24px; overflow: hidden; }
+    .proof-item { background: var(--surface); padding: 36px 24px; text-align: center; }
+    .proof-num { font-size: 48px; font-weight: 900; letter-spacing: -0.06em; color: var(--text); line-height: 1; }
+    .proof-num.g { color: var(--gold2); }
+    .proof-lbl { font-size: 13px; color: var(--muted); margin-top: 8px; line-height: 1.4; }
+
+    /* ── TESTIMONIALS ─────────────────────── */
+    .testi-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 48px; }
+    .testi {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 22px; padding: 26px;
+      transition: border-color .3s;
+    }
+    .testi:hover { border-color: var(--border-hi); }
+    .testi-stars { display: flex; gap: 3px; margin-bottom: 14px; }
+    .star { color: var(--gold2); font-size: 14px; }
+    .testi-text { font-size: 15px; color: #c8cedf; line-height: 1.65; margin-bottom: 20px; font-style: italic; }
+    .testi-text::before { content: '"'; }
+    .testi-text::after { content: '"'; }
+    .testi-author { display: flex; align-items: center; gap: 12px; }
+    .testi-av { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid var(--border-hi); }
+    .testi-av-placeholder { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, var(--gold), var(--gold2)); display: grid; place-items: center; font-weight: 800; font-size: 15px; color: #06070b; flex-shrink: 0; }
+    .testi-name { font-size: 14px; font-weight: 700; }
+    .testi-role { font-size: 12.5px; color: var(--muted); }
+
+    /* ── HOW IT WORKS ─────────────────────── */
+    .steps-img { width: 100%; height: 440px; object-fit: cover; border-radius: 26px; border: 1px solid var(--border); box-shadow: 0 32px 80px rgba(0,0,0,0.45); }
+
+    /* ── INTEGRATIONS ─────────────────────── */
+    .int-grid { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 40px; }
+    .int-chip {
+      display: flex; align-items: center; gap: 10px; padding: 12px 20px; border-radius: 16px;
+      background: var(--surface); border: 1px solid var(--border); font-size: 14px; font-weight: 600; color: var(--muted);
+      transition: border-color .2s, color .2s;
+    }
+    .int-chip:hover { border-color: var(--border-hi); color: var(--text); }
+    .int-icon { font-size: 20px; }
+
+    /* ── PRICING ──────────────────────────── */
+    .price-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; margin-top: 48px; }
+    .pc { background: var(--surface); border: 1px solid var(--border); border-radius: 28px; padding: 30px 28px; transition: border-color .3s, transform .3s; }
+    .pc:hover { border-color: var(--border-hi); }
+    .pc.feat {
+      background: linear-gradient(155deg, rgba(196,146,58,0.13), var(--surface) 65%);
+      border-color: rgba(196,146,58,0.28); transform: translateY(-7px);
+      box-shadow: 0 36px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(196,146,58,0.12);
+    }
+    .feat-badge { display: inline-flex; padding: 5px 12px; border-radius: 999px; background: rgba(196,146,58,0.13); border: 1px solid rgba(196,146,58,0.24); font-size: 10.5px; font-weight: 800; color: var(--gold3); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 16px; }
+    .pc-tier { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+    .pc-price { font-size: 50px; font-weight: 900; letter-spacing: -0.06em; line-height: 1; }
+    .pc-price sup { font-size: 20px; font-weight: 700; vertical-align: super; letter-spacing: 0; }
+    .pc-price small { font-size: 15px; font-weight: 500; color: var(--muted); letter-spacing: 0; }
+    .pc-desc { font-size: 13.5px; color: var(--muted); margin: 10px 0 20px; line-height: 1.5; }
+    .pc-div { height: 1px; background: var(--border); margin-bottom: 20px; }
+    .pc-items { display: grid; gap: 9px; }
+    .pc-item { display: flex; gap: 10px; align-items: center; font-size: 14px; color: #c4cad8; }
+    .pc-check { width: 17px; height: 17px; border-radius: 50%; background: rgba(196,146,58,0.12); border: 1px solid rgba(196,146,58,0.22); display: grid; place-items: center; flex-shrink: 0; }
+    .pc-check svg { width: 9px; height: 9px; }
+    .pc-btn { display: block; width: 100%; text-align: center; margin-top: 24px; padding: 14px; border-radius: 14px; font-weight: 700; font-size: 14.5px; cursor: pointer; border: 0; font-family: inherit; transition: all .2s; }
+    .pc-btn-line { background: rgba(255,255,255,0.05); color: var(--text); border: 1px solid var(--border-hi); }
+    .pc-btn-line:hover { background: rgba(255,255,255,0.09); }
+    .pc-btn-gold { background: linear-gradient(130deg, var(--gold), var(--gold2)); color: #06070b; box-shadow: 0 8px 28px rgba(196,146,58,0.24); }
+    .pc-btn-gold:hover { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(196,146,58,0.4); }
+
+    /* ── CTA BOX ──────────────────────────── */
+    .cta-section { padding: 92px 0; }
+    .cta-box {
+      display: grid; grid-template-columns: 1fr 0.88fr; gap: 32px; padding: 52px 48px;
+      border-radius: 36px; border: 1px solid rgba(196,146,58,0.2);
+      background: linear-gradient(130deg, rgba(196,146,58,0.10) 0%, rgba(12,14,22,0.98) 55%);
+      box-shadow: 0 48px 120px rgba(0,0,0,0.55); position: relative; overflow: hidden;
+    }
+    .cta-box::after { content: ''; position: absolute; top: -100px; right: -100px; width: 420px; height: 420px; background: radial-gradient(circle, rgba(196,146,58,0.07), transparent 70%); pointer-events: none; }
+    .cta-copy { position: relative; z-index: 1; }
+    .cta-copy h2 { font-size: clamp(28px, 3.5vw, 44px); line-height: 1.08; margin-bottom: 14px; }
+    .cta-copy p { color: var(--muted); font-size: 17px; line-height: 1.68; max-width: 500px; }
+    .cta-gs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 28px; }
+    .cta-g { padding: 15px 16px; border-radius: 15px; background: rgba(255,255,255,0.04); border: 1px solid var(--border); }
+    .cta-g-l { font-size: 10.5px; color: var(--muted2); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 5px; }
+    .cta-g-t { font-size: 13.5px; font-weight: 700; color: var(--text); line-height: 1.35; }
+
+    /* form */
+    .form-box { background: var(--surface); border: 1px solid var(--border-hi); border-radius: 26px; padding: 30px; position: relative; z-index: 1; }
+    .form-box h3 { font-size: 17px; font-weight: 800; margin-bottom: 20px; letter-spacing: -0.02em; }
+    .field { margin-bottom: 13px; }
+    .field label { display: block; font-size: 12.5px; font-weight: 600; color: #9098b4; margin-bottom: 7px; }
+    .field input { width: 100%; padding: 12.5px 15px; border-radius: 12px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: var(--text); font-family: inherit; font-size: 14.5px; outline: none; transition: border-color .2s, background .2s; }
+    .field input::placeholder { color: var(--muted2); }
+    .field input:focus { border-color: rgba(196,146,58,0.42); background: rgba(255,255,255,0.07); }
+    .sub-btn { width: 100%; padding: 14px; border-radius: 13px; border: 0; background: linear-gradient(130deg, #c4923a 0%, #e5b468 55%, #c4923a 100%); background-size: 200% auto; color: #06070b; font-family: inherit; font-size: 15px; font-weight: 800; cursor: pointer; transition: background-position .4s, transform .2s, box-shadow .2s; box-shadow: 0 8px 28px rgba(196,146,58,0.22); margin-top: 6px; }
+    .sub-btn:hover { background-position: right center; transform: translateY(-2px); box-shadow: 0 12px 36px rgba(196,146,58,0.40); }
+    .form-note { font-size: 11.5px; color: var(--muted2); line-height: 1.55; margin-top: 10px; text-align: center; }
+    #msg { display: none; margin-top: 12px; padding: 13px 15px; border-radius: 13px; background: rgba(196,146,58,0.09); border: 1px solid rgba(196,146,58,0.2); color: var(--gold3); font-size: 13.5px; line-height: 1.5; }
+
+    /* ── FAQ ──────────────────────────────── */
+    .faq-wrap { max-width: 740px; margin: 0 auto; }
+    .faq { display: grid; gap: 11px; margin-top: 36px; }
+    details { background: var(--surface); border: 1px solid var(--border); border-radius: 17px; overflow: hidden; transition: border-color .2s; }
+    details[open] { border-color: rgba(196,146,58,0.24); }
+    summary { list-style: none; cursor: pointer; font-weight: 700; font-size: 15.5px; padding: 19px 21px; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: '+'; width: 24px; height: 24px; border-radius: 50%; flex-shrink: 0; background: rgba(196,146,58,0.09); border: 1px solid rgba(196,146,58,0.2); display: grid; place-items: center; color: var(--gold2); font-size: 17px; line-height: 1; transition: transform .2s; }
+    details[open] summary::after { transform: rotate(45deg); }
+    details p { padding: 0 21px 19px; font-size: 14.5px; color: var(--muted); line-height: 1.65; }
+
+    /* ── FOOTER ───────────────────────────── */
+    footer { padding: 44px 0 60px; border-top: 1px solid var(--border); text-align: center; }
+    .ft-logo { font-family: 'Instrument Serif', serif; font-size: 22px; color: #fff; margin-bottom: 8px; }
+    .ft-logo em { color: var(--gold2); font-style: normal; }
+    .ft-tag { font-size: 14px; color: var(--muted2); margin-bottom: 22px; }
+    .ft-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 22px; font-size: 13px; color: var(--muted); margin-bottom: 22px; }
+    .ft-links a { transition: color .2s; }
+    .ft-links a:hover { color: var(--text); }
+    .ft-copy { font-size: 12.5px; color: var(--muted2); }
+
+    /* ── RESPONSIVE ───────────────────────── */
+    @media (max-width: 1020px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 52px; }
+      .mockup-wrap { max-width: 540px; margin: 0 auto; }
+      .fg { grid-template-columns: 1fr 1fr; }
+      .price-grid { grid-template-columns: 1fr; max-width: 400px; margin: 48px auto 0; }
+      .pc.feat { transform: none; }
+      .cta-box { grid-template-columns: 1fr; padding: 36px 28px; }
+      .proof-grid { grid-template-columns: 1fr 1fr; }
+      .testi-grid { grid-template-columns: 1fr 1fr; }
+      .split { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 720px) {
+      .nav { display: none; }
+      .menu-btn { display: flex; }
+      .fg { grid-template-columns: 1fr; }
+      .ba-grid { grid-template-columns: 1fr; }
+      .testi-grid { grid-template-columns: 1fr; }
+      .proof-grid { grid-template-columns: 1fr 1fr; }
+      .metrics { grid-template-columns: 1fr 1fr 1fr; }
+      .m-body { grid-template-columns: 1fr; }
+      .mc-right { display: none; }
+      .section { padding: 68px 0; }
+      .hero { padding: 68px 0 52px; }
+      h1 { font-size: 38px; }
+      .cta-box { padding: 28px 22px; }
+      .cta-gs { grid-template-columns: 1fr; }
+      .strip-label { margin-right: 0; margin-bottom: 12px; }
+      .strip-inner { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── TOPBAR ─────────────────────────────── -->
+<header class="topbar">
+  <div class="container topbar-inner">
+    <a class="brand" href="#top">
+      <svg class="logo-svg" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="36" height="36" rx="10" fill="#0c0e16"/>
+        <path d="M10 27 L18 10 L26 27" stroke="url(#g1)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <circle cx="18" cy="10" r="2" fill="url(#g1)"/>
+        <line x1="13.5" y1="22" x2="22.5" y2="22" stroke="url(#g1)" stroke-width="1.6" stroke-linecap="round" opacity="0.45"/>
+        <defs>
+          <linearGradient id="g1" x1="10" y1="10" x2="26" y2="27" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#e5b468"/>
+            <stop offset="1" stop-color="#f3ce90"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <span class="wordmark">Leap<em>s</em></span>
+    </a>
+    <nav class="nav">
+      <a href="#problema">Problema</a>
+      <a href="#solucao">Solução</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#precos">Preços</a>
+    </nav>
+    <a class="btn btn-gold" href="#cta">Testar grátis →</a>
+    <button class="menu-btn">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ── HERO ─────────────────────────────── -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="container hero-grid">
+
+    <div>
+      <div class="pill"><span class="pill-dot"></span> Feito para negócios que vendem pelo WhatsApp</div>
+      <h1>Nunca mais perca<br>clientes no<br><span class="h1-serif">WhatsApp</span></h1>
+      <p class="lead">Capture leads, organize seu funil e dispare follow-ups automáticos no momento certo — sem planilhas, sem depender da memória da equipe.</p>
+      <div class="actions">
+        <a class="btn btn-gold" href="#cta">Quero testar grátis</a>
+        <a class="btn btn-ghost" href="#como-funciona">Ver como funciona</a>
+      </div>
+      <div class="metrics">
+        <div class="metric"><div class="metric-val gold">+70%</div><div class="metric-lbl">menos leads esquecidos</div></div>
+        <div class="metric"><div class="metric-val">14 dias</div><div class="metric-lbl">de teste gratuito</div></div>
+        <div class="metric"><div class="metric-val">R$49</div><div class="metric-lbl">plano inicial</div></div>
+      </div>
+    </div>
+
+    <div class="mockup-wrap">
+      <div class="mockup-glow"></div>
+      <div class="mockup">
+        <div class="mockup-bar">
+          <div class="m-dots"><span class="m-dot m-dot-r"></span><span class="m-dot m-dot-y"></span><span class="m-dot m-dot-g"></span></div>
+          <span class="m-title">Leaps Dashboard</span>
+          <span style="width:56px"></span>
+        </div>
+        <div class="m-body">
+          <div class="mc">
+            <div class="mc-top">
+              <div><div class="mc-lbl">Funil de leads</div><div class="mc-name">Resumo do dia</div></div>
+              <span class="live-tag"><span class="live-tag-dot"></span> Ao vivo</span>
+            </div>
+            <div class="bars">
+              <div class="bar-item"><div class="bar-row"><span>Novos</span><b>18</b></div><div class="bar-track"><div class="bar-fill bf-a"></div></div></div>
+              <div class="bar-item"><div class="bar-row"><span>Contatados</span><b>11</b></div><div class="bar-track"><div class="bar-fill bf-b"></div></div></div>
+              <div class="bar-item"><div class="bar-row"><span>Fechados</span><b>5</b></div><div class="bar-track"><div class="bar-fill bf-c"></div></div></div>
+            </div>
+          </div>
+          <div class="mc-right">
+            <div class="mc-mini">
+              <img src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=600&h=200&fit=crop" alt="Lead quente" loading="lazy">
+              <div class="mc-mini-body"><h5>Lead quente 🔥</h5><p>"Quanto custa?" — follow-up enviado há 2 min.</p></div>
+            </div>
+            <div class="mc-stat">
+              <div class="mc-stat-lbl">Leads recuperados</div>
+              <div class="mc-stat-num">+31%</div>
+              <div class="mc-stat-sub">com mensagens automáticas</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── STRIP ─────────────────────────────── -->
+<div class="strip">
+  <div class="container strip-inner">
+    <span class="strip-label">Ideal para</span>
+    <div class="strip-tags">
+      <span class="stag">🏥 Clínicas</span>
+      <span class="stag">⚖️ Advogados</span>
+      <span class="stag">🏋️ Academias</span>
+      <span class="stag">🏠 Imobiliárias</span>
+      <span class="stag">💼 Consultores</span>
+      <span class="stag">🛍️ E-commerce</span>
+    </div>
+  </div>
+</div>
+
+<!-- ── NÚMEROS / PROOF ────────────────────── -->
+<div class="proof">
+  <div class="container">
+    <div class="proof-grid">
+      <div class="proof-item">
+        <div class="proof-num g" data-target="70">0%</div>
+        <div class="proof-lbl">redução de leads<br>esquecidos</div>
+      </div>
+      <div class="proof-item">
+        <div class="proof-num" data-target="3">0x</div>
+        <div class="proof-lbl">mais conversões<br>com follow-up automático</div>
+      </div>
+      <div class="proof-item">
+        <div class="proof-num g" data-target="5">0 min</div>
+        <div class="proof-lbl">para configurar<br>e começar</div>
+      </div>
+      <div class="proof-item">
+        <div class="proof-num" data-target="500">0+</div>
+        <div class="proof-lbl">negócios que já<br>usam o Leaps</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── PROBLEMA ───────────────────────────── -->
+<section id="problema" class="section section-alt">
+  <div class="container split">
+
+    <div>
+      <div class="kicker">O problema real</div>
+      <h2 class="tl">Você atende, responde<br>e mesmo assim perde vendas.</h2>
+      <p class="sub tl" style="margin:0;">A maioria dos negócios perde leads por atraso, desorganização e falta de follow-up. Quem não acompanha deixa dinheiro na mesa todos os dias.</p>
+      <div class="bullets">
+        <div class="bullet"><span class="b-dot b-gold"></span><div><h4>Leads esquecidos</h4><p>Mensagens ficam perdidas em conversas soltas no WhatsApp.</p></div></div>
+        <div class="bullet"><span class="b-dot b-purple"></span><div><h4>Follow-up manual</h4><p>Você depende da memória e do tempo disponível do time.</p></div></div>
+        <div class="bullet"><span class="b-dot b-red"></span><div><h4>Conversão baixa</h4><p>O lead esfria e acaba comprando de um concorrente.</p></div></div>
+      </div>
+    </div>
+
+    <div class="ba-grid">
+      <div class="ba-card">
+        <img src="https://images.pexels.com/photos/3807517/pexels-photo-3807517.jpeg?auto=compress&cs=tinysrgb&w=700&h=340&fit=crop" alt="Antes do Leaps" loading="lazy">
+        <div class="ba-body"><div class="ba-lbl before-l">Antes</div><p>Mensagens espalhadas, resposta lenta e nenhum controle do funil.</p></div>
+      </div>
+      <div class="ba-card after">
+        <img src="https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=700&h=340&fit=crop" alt="Depois do Leaps" loading="lazy">
+        <div class="ba-body"><div class="ba-lbl after-l">Depois</div><p>Leads organizados, follow-up automático e muito mais vendas fechadas.</p></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── SOLUÇÃO ────────────────────────────── -->
+<section id="solucao" class="section">
+  <div class="container tc">
+    <div class="kicker">A solução</div>
+    <h2>Uma central simples para<br>vender mais no WhatsApp</h2>
+    <p class="sub">O Leaps captura leads, aplica tags, organiza o funil e dispara follow-ups no piloto automático — para você focar em fechar.</p>
+
+    <div class="fg">
+      <div class="fc">
+        <div class="fc-num">1</div>
+        <h3>Captura automática</h3>
+        <p>Centralize contatos sem planilhas soltas. Cada lead entra organizado, com histórico e status em tempo real.</p>
+        <img class="fc-img" src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800&h=350&fit=crop" alt="Captura de leads" loading="lazy">
+      </div>
+      <div class="fc">
+        <div class="fc-num">2</div>
+        <h3>Follow-up inteligente</h3>
+        <p>Envie a mensagem certa no momento certo, sem depender de lembretes manuais ou da boa memória de ninguém.</p>
+        <img class="fc-img" src="https://images.pexels.com/photos/6224/hands-people-woman-working.jpg?auto=compress&cs=tinysrgb&w=800&h=350&fit=crop" alt="Follow-up automático" loading="lazy">
+      </div>
+      <div class="fc">
+        <div class="fc-num">3</div>
+        <h3>Mais vendas fechadas</h3>
+        <p>Veja quem está pronto para fechar e tome ação com foco no que realmente gera receita para o negócio.</p>
+        <img class="fc-img" src="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=800&h=350&fit=crop" alt="Mais vendas" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── DEPOIMENTOS ────────────────────────── -->
+<section class="section section-alt">
+  <div class="container tc">
+    <div class="kicker">Depoimentos</div>
+    <h2>Quem já usa o Leaps</h2>
+    <p class="sub">Negócios reais que pararam de perder leads e começaram a fechar mais.</p>
+
+    <div class="testi-grid">
+      <div class="testi">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">Antes eu perdia pelo menos 4 leads por semana por falta de follow-up. Com o Leaps isso zerou. Simplesmente indispensável.</div>
+        <div class="testi-author">
+          <div class="testi-av-placeholder">R</div>
+          <div><div class="testi-name">Renata Souza</div><div class="testi-role">Clínica de Estética · SP</div></div>
+        </div>
+      </div>
+      <div class="testi">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">Em 2 semanas de uso já fechei 3 contratos que teriam esfriado. A automação funciona de verdade, sem complicação.</div>
+        <div class="testi-author">
+          <div class="testi-av-placeholder">M</div>
+          <div><div class="testi-name">Marcos Lima</div><div class="testi-role">Advogado Trabalhista · RJ</div></div>
+        </div>
+      </div>
+      <div class="testi">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">Nossa academia cresceu 28% nas matrículas só reorganizando o funil pelo Leaps. Recomendo pra qualquer negócio local.</div>
+        <div class="testi-author">
+          <div class="testi-av-placeholder">F</div>
+          <div><div class="testi-name">Felipe Andrade</div><div class="testi-role">Academia Fit · BH</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── COMO FUNCIONA ──────────────────────── -->
+<section id="como-funciona" class="section">
+  <div class="container split">
+
+    <div>
+      <div class="kicker">Como funciona</div>
+      <h2 class="tl">Do lead ao fechamento<br>em poucos passos</h2>
+      <div class="bullets">
+        <div class="bullet"><span class="b-dot b-gold"></span><div><h4>Conecte o contato</h4><p>Cadastre o lead manualmente ou capture via formulário integrado.</p></div></div>
+        <div class="bullet"><span class="b-dot b-gold"></span><div><h4>Organize o funil</h4><p>Aplique tags como quente, frio, orçamento enviado e fechado.</p></div></div>
+        <div class="bullet"><span class="b-dot b-gold"></span><div><h4>Automatize o follow-up</h4><p>Envie sequências de mensagens personalizadas e converta mais.</p></div></div>
+      </div>
+    </div>
+
+    <div>
+      <img class="steps-img" src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1000&h=880&fit=crop" alt="Painel de vendas Leaps" loading="lazy">
+    </div>
+
+  </div>
+</section>
+
+<!-- ── INTEGRAÇÕES ────────────────────────── -->
+<div class="strip" style="padding: 40px 0;">
+  <div class="container tc">
+    <div class="kicker" style="margin-bottom:18px;">Integra com o que você já usa</div>
+    <div class="int-grid">
+      <div class="int-chip"><span class="int-icon">💬</span> WhatsApp</div>
+      <div class="int-chip"><span class="int-icon">📊</span> Google Sheets</div>
+      <div class="int-chip"><span class="int-icon">📧</span> E-mail</div>
+      <div class="int-chip"><span class="int-icon">🔗</span> Zapier</div>
+      <div class="int-chip"><span class="int-icon">🗃️</span> Supabase</div>
+      <div class="int-chip"><span class="int-icon">📲</span> Instagram DM</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── PREÇOS ─────────────────────────────── -->
+<section id="precos" class="section">
+  <div class="container tc">
+    <div class="pill"><span class="pill-dot"></span> Oferta de lançamento</div>
+    <h2>Preço simples e<br>direto ao ponto</h2>
+    <p class="sub">Comece com 14 dias grátis. Sem cartão de crédito. Cancele quando quiser.</p>
+
+    <div class="price-grid">
+      <div class="pc">
+        <div class="pc-tier">Starter</div>
+        <div class="pc-price"><sup>R$</sup>49<small>/mês</small></div>
+        <div class="pc-desc">Ideal para começar e validar o fluxo com seus primeiros leads.</div>
+        <div class="pc-div"></div>
+        <div class="pc-items">
+          <div class="pc-item"><span class="pc-check"><svg viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.2 6L8 1" stroke="#e5b468" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Até 300 leads/mês</div>
+          <div class="pc-item"><span class="pc-check"><svg viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.2 6L8 1" stroke="#e5b468" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> 2 sequências de follow-up</div>
+          <div class="pc-item"><span class="pc-check"><svg viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.2 6L8 1" stroke="#e5b468" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Dashboard básico</div>
+        </div>
+        <button class="pc-btn pc-btn-line">Começar grátis</button>
+      </div>
+
+      <div class="pc feat">
+        <div class="feat-badge">⭐ Mais vendido</div>
+        <div class="pc-tier">Pro</div>
+        <div class="pc-price"><sup>R$</sup>89<small>/mês</small></div>
+        <div class="pc-desc">Para quem quer crescer com previsibilidade e escala real.</div>
+        <div class="pc-div"></div>
+        <div class="pc-items">
+          <div class="pc-item"><span class="pc-check"><svg viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.2 6L8 1" stroke="#e5b468" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Leads ilimitados</div>
+          <div class="pc-item"><span class="pc-check"><svg viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.2 6L8 1" stroke="#e5b468" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> 10 sequências de mensagens</div>
+          <div class="pc-item"><span class="pc-check"><svg viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.2 6L8 1" stroke="#e5b468" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Exportação e tags avançadas</div>
+          <div class="pc-item"><span class="pc-check"><svg viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.2 6L8 1" stroke="#e5b468" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Relatórios de conversão</div>
+        </div>
+        <button class="pc-btn pc-btn-gold">Quero o Pro</button>
+      </div>
+
+      <div class="pc">
+        <div class="pc-tier">Agency</div>
+        <div class="pc-price"><sup>R$</sup>199<small>/mês</small></div>
+        <div class="pc-desc">Para quem atende vários clientes com gestão centralizada.</div>
+        <div class="pc-div"></div>
+        <div class="pc-items">
+          <div class="pc-item"><span class="pc-check"><svg viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.2 6L8 1" stroke="#e5b468" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Multiusuário</div>
+          <div class="pc-item"><span class="pc-check"><svg viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.2 6L8 1" stroke="#e5b468" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Gestão por cliente</div>
+          <div class="pc-item"><span class="pc-check"><svg viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.2 6L8 1" stroke="#e5b468" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> White label em breve</div>
+        </div>
+        <button class="pc-btn pc-btn-line">Falar com o time</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ────────────────────────────────── -->
+<section class="cta-section" id="cta">
+  <div class="container">
+    <div class="cta-box">
+      <div class="cta-copy">
+        <div class="pill"><span class="pill-dot"></span> Teste grátis · sem cartão</div>
+        <h2>Entre na lista e teste<br>antes de todo mundo</h2>
+        <p>Receba acesso antecipado, veja a demo ao vivo e comece a recuperar leads sem setup complicado.</p>
+        <div class="cta-gs">
+          <div class="cta-g"><div class="cta-g-l">Garantia</div><div class="cta-g-t">Não gostou? Cancela sem burocracia</div></div>
+          <div class="cta-g"><div class="cta-g-l">Setup</div><div class="cta-g-t">Funciona em menos de 5 minutos</div></div>
+        </div>
+      </div>
+
+      <div class="form-box">
+        <h3>Garantir meu acesso gratuito</h3>
+        <form id="leadForm">
+          <div class="field"><label for="name">Seu nome</label><input id="name" type="text" name="name" placeholder="Nome completo" required></div>
+          <div class="field"><label for="email">Seu e-mail</label><input id="email" type="email" name="email" placeholder="seuemail@empresa.com" required></div>
+          <div class="field"><label for="whatsapp">Seu WhatsApp</label><input id="whatsapp" type="text" name="whatsapp" placeholder="(11) 99999-9999" required></div>
+          <button type="submit" class="sub-btn">Quero entrar na lista →</button>
+          <p class="form-note">Ao enviar, você concorda em receber contato sobre o Leaps. Sem spam.</p>
+        </form>
+        <div id="msg">✓ Cadastro realizado! Em breve você receberá os próximos passos por e-mail.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ────────────────────────────────── -->
+<section class="section section-alt">
+  <div class="container faq-wrap tc">
+    <div class="kicker">Dúvidas frequentes</div>
+    <h2>O que você precisa saber</h2>
+    <div class="faq">
+      <details>
+        <summary>O Leaps captura leads automaticamente?</summary>
+        <p>Sim. O formulário envia os dados direto para o painel, sem ferramentas externas. A integração com Supabase garante que nenhum lead se perca e você pode acessar tudo em tempo real.</p>
+      </details>
+      <details>
+        <summary>Preciso de conhecimento técnico para usar?</summary>
+        <p>Não. O Leaps foi desenhado para ser intuitivo do primeiro acesso. Em menos de 5 minutos você já está capturando leads e disparando follow-ups automáticos, sem precisar saber programar.</p>
+      </details>
+      <details>
+        <summary>Funciona para qualquer tipo de negócio?</summary>
+        <p>Sim, especialmente negócios que vendem pelo WhatsApp: clínicas, advogados, academias, imobiliárias, consultores e e-commerce. Se você recebe mensagens e precisa acompanhar, o Leaps serve para você.</p>
+      </details>
+      <details>
+        <summary>Posso cancelar quando quiser?</summary>
+        <p>Sim, sem burocracia e sem multa. Cancele com um clique, sem letras miúdas e sem fidelidade forçada.</p>
+      </details>
+      <details>
+        <summary>Como publico o Leaps no meu domínio?</summary>
+        <p>Configure o Supabase com suas credenciais, faça upload do index.html para Vercel, Netlify ou HostGator e aponte seu domínio. O guia completo está no README incluído no ZIP.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ── FOOTER ─────────────────────────────── -->
+<footer>
+  <div class="container">
+    <div class="ft-logo">Leap<em>s</em></div>
+    <div class="ft-tag">Mais follow-up. Mais vendas.</div>
+    <div class="ft-links">
+      <a href="#problema">Problema</a>
+      <a href="#solucao">Solução</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#precos">Preços</a>
+      <a href="#cta">Teste grátis</a>
+    </div>
+    <div class="ft-copy">© 2026 Leaps. Todos os direitos reservados.</div>
+  </div>
+</footer>
+
+<script type="module">
+  import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+  const SUPABASE_URL = 'https://SEU-PROJETO.supabase.co';
+  const SUPABASE_ANON_KEY = 'SUA_CHAVE_ANONIMA_AQUI';
+  const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  const form = document.getElementById('leadForm');
+  const msg  = document.getElementById('msg');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const lead = { name: form.name.value.trim(), email: form.email.value.trim().toLowerCase(), whatsapp: form.whatsapp.value.trim() };
+    try {
+      const { error } = await supabase.from('leads').insert([lead]);
+      if (error) { console.error(error); alert('Erro ao salvar. Confira tabela e permissões.'); return; }
+      form.reset(); msg.style.display = 'block'; msg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } catch (err) { console.error(err); alert('Erro de conexão.'); }
+  });
+</script>
+
+</body>
+</html>
